@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Counter, AddCounter} from '@ui-components';
+import { Counter, AddCounter} from './ui-components';
 
 function App() {
   const [counter, setCounter] = React.useState(0);
