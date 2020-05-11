@@ -3,7 +3,6 @@ import { AppContext } from '../../context';
 import { AppStore } from '../../store';
 import { observer } from 'mobx-react';
 interface ICounterProps {
-    appStore: AppStore;
 }
 
 @observer
@@ -36,10 +35,10 @@ class Counter extends React.Component<ICounterProps>{
         );*/
         return (
             <div>
-                <label>current count: {this.props.appStore.counter}</label>
+                <label>current count: {this.context.counter}</label>
             </div>
         );
     }
 }
-//Counter.contextType = AppContext;
+Counter.contextType = AppContext;
 export default Counter;

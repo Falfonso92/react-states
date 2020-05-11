@@ -4,17 +4,16 @@ import { AppContext } from '../../context';
 import { AppStore } from '../../store';
 
 interface IAddCounterProps {
-    appStore: AppStore;
 }
 
 class AddCounter extends React.Component<IAddCounterProps>{
     constructor(props: IAddCounterProps){
         super(props);
     }
-    private addCounter = (context: any) => {
+    private addCounter = (context: AppStore) => {
         context.addCounter();
     }
-    private addSecondCounter = (context: any) => {
+    private addSecondCounter = (context: AppStore) => {
         context.addSecondCounter();
     }
     public render(){
@@ -41,12 +40,12 @@ class AddCounter extends React.Component<IAddCounterProps>{
 
        return (
         <div>
-            <Button color='primary' onClick={() => this.addCounter(this.props.appStore)} variant='contained'> Add Counter</Button>
+            <Button color='primary' onClick={() => this.addCounter(this.context)} variant='contained'> Add Counter</Button>
             &nbsp;&nbsp;
-            <Button color='primary' onClick={() => this.addSecondCounter(this.props.appStore)} variant='contained'> Add Second Counter</Button>
+            <Button color='primary' onClick={() => this.addSecondCounter(this.context)} variant='contained'> Add Second Counter</Button>
         </div>
        );
     }
 }
-//AddCounter.contextType = AppContext;
+AddCounter.contextType = AppContext;
 export default AddCounter;

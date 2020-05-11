@@ -1,9 +1,4 @@
 import React from 'react';
-const AppContext = React.createContext(
-    {
-        counter: 0, 
-        addCounter: () => {},
-        secondCounter: 0,
-        addSecondCounter: () => {}
-    });
+import { AppStore } from '../store';
+const AppContext = React.createContext(new AppStore());
 export default AppContext;
