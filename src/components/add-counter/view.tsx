@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { Button } from '@material-ui/core';
 import { AppContext } from '../../context';
+import { AppStore } from '../../store';
 
 interface IAddCounterProps {
+    appStore: AppStore;
 }
 
 class AddCounter extends React.Component<IAddCounterProps>{
@@ -29,14 +31,22 @@ class AddCounter extends React.Component<IAddCounterProps>{
                 )}
             </AppContext.Consumer>
        );*/
-       return (
+       /*return (
         <div>
             <Button color='primary' onClick={() => this.addCounter(this.context)} variant='contained'> Add Counter</Button>
             &nbsp;&nbsp;
             <Button color='primary' onClick={() => this.addSecondCounter(this.context)} variant='contained'> Add Second Counter</Button>
         </div>
-       )
+       )*/
+
+       return (
+        <div>
+            <Button color='primary' onClick={() => this.addCounter(this.props.appStore)} variant='contained'> Add Counter</Button>
+            &nbsp;&nbsp;
+            <Button color='primary' onClick={() => this.addSecondCounter(this.props.appStore)} variant='contained'> Add Second Counter</Button>
+        </div>
+       );
     }
 }
-AddCounter.contextType = AppContext;
+//AddCounter.contextType = AppContext;
 export default AddCounter;

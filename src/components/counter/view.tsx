@@ -1,8 +1,12 @@
 import * as React from 'react';
 import { AppContext } from '../../context';
+import { AppStore } from '../../store';
+import { observer } from 'mobx-react';
 interface ICounterProps {
+    appStore: AppStore;
 }
 
+@observer
 class Counter extends React.Component<ICounterProps>{
     constructor(props: ICounterProps){
         super(props);
@@ -23,14 +27,19 @@ class Counter extends React.Component<ICounterProps>{
                 </AppContext.Consumer>
             </div>
         );*/
-        return (
+        /*return (
             <div>
                 <label>current count: {this.context.counter}</label>
                 <br/>
                 <label>current second counter: {this.context.secondCounter}</label>
             </div>
+        );*/
+        return (
+            <div>
+                <label>current count: {this.props.appStore.counter}</label>
+            </div>
         );
     }
 }
-Counter.contextType = AppContext;
+//Counter.contextType = AppContext;
 export default Counter;
