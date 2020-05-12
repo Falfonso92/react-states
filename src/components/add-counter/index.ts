@@ -1,6 +1,6 @@
 import View from './view';
 import { AppState } from '../../store';
-import { AnyAction, bindActionCreators, Dispatch } from 'redux';
+import { AnyAction, Dispatch } from 'redux';
 import { addCounter, addSecondCounter } from '../../store/counter/actions';
 import { connect } from 'react-redux';
 

@@ -2,9 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Counter, AddCounter, SecondCounter} from './components';
-import { Provider, connect } from 'react-redux';
-import { AppState } from './store';
-import { Store } from 'redux';
+import { Provider} from 'react-redux';
 
 interface AppProps {
   store: any

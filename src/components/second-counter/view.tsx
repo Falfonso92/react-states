@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { CounterState } from '../../store/counter/types';
 interface ISecondCounterProps {
     secondCount:number
 }
