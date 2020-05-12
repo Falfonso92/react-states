@@ -2,25 +2,27 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Counter, AddCounter, SecondCounter} from './components';
-import {AppContext} from './context';
-import { AppProvider } from './providers';
-import { AppStore } from './store';
+import { Provider, connect } from 'react-redux';
+import { AppState } from './store';
+import { Store } from 'redux';
 
+interface AppProps {
+  store: any
+}
 
-function App() {
-  const appStore = new AppStore();
-  console.log("app render");
+const App: React.FC<AppProps> = ({store}) =>  {
+  console.log(store);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <AppProvider>
-          <Counter></Counter>
-          <SecondCounter></SecondCounter>
-          <AddCounter></AddCounter>
-        </AppProvider>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+            <AddCounter></AddCounter>
+            <Counter></Counter>
+            <SecondCounter></SecondCounter>
+        </header>
+      </div>
+    </Provider>
   );
 }
 

@@ -1,4 +1,3 @@
 import React from 'react';
-import { AppStore } from '../store';
-const AppContext = React.createContext(new AppStore());
+const AppContext = React.createContext({});
 export default AppContext;

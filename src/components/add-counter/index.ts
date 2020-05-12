@@ -1,3 +1,17 @@
 import View from './view';
+import { AppState } from '../../store';
+import { AnyAction, bindActionCreators, Dispatch } from 'redux';
+import { addCounter, addSecondCounter } from '../../store/counter/actions';
+import { connect } from 'react-redux';
 
-export default View;
+const mapStateToProps = (state: AppState) => { return {}};
+
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>{
+    return {
+        addCounter: () => dispatch(addCounter()),
+        addSecondCounter: () => dispatch(addSecondCounter())
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(View);

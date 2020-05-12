@@ -1,51 +1,32 @@
 import * as React from 'react';
 import { Button } from '@material-ui/core';
-import { AppContext } from '../../context';
-import { AppStore } from '../../store';
 
-interface IAddCounterProps {
+interface IAddCounterProps{
+    addCounter: Function;
+    addSecondCounter:Function
 }
 
-class AddCounter extends React.Component<IAddCounterProps>{
-    constructor(props: IAddCounterProps){
+class AddCounter extends React.Component<any>{
+    constructor(props: any){
         super(props);
+        console.log(props);
     }
-    private addCounter = (context: AppStore) => {
-        context.addCounter();
+    private addCounter = () => {
+        this.props.addCounter();
     }
-    private addSecondCounter = (context: AppStore) => {
-        context.addSecondCounter();
+    private addSecondCounter = () => {
+        this.props.addSecondCounter();
     }
     public render(){
         console.log("render Add Counter");
-         //uncomment to show Context.Consumer in action 
-        /*return (
-            <AppContext.Consumer>
-                {value => ( 
-                    <div>
-                        <Button color='primary' onClick={() => this.addCounter(value)} variant='contained'> Add Counter</Button>
-                        &nbsp;&nbsp;
-                        <Button color='primary' onClick={() => this.addSecondCounter(value)} variant='contained'> Add Second Counter</Button>
-                    </div>
-                )}
-            </AppContext.Consumer>
-       );*/
-       /*return (
-        <div>
-            <Button color='primary' onClick={() => this.addCounter(this.context)} variant='contained'> Add Counter</Button>
-            &nbsp;&nbsp;
-            <Button color='primary' onClick={() => this.addSecondCounter(this.context)} variant='contained'> Add Second Counter</Button>
-        </div>
-       )*/
 
        return (
         <div>
-            <Button color='primary' onClick={() => this.addCounter(this.context)} variant='contained'> Add Counter</Button>
+            <Button color='primary' onClick={this.addCounter} variant='contained'> Add Counter</Button>
             &nbsp;&nbsp;
-            <Button color='primary' onClick={() => this.addSecondCounter(this.context)} variant='contained'> Add Second Counter</Button>
+            <Button color='primary' onClick={this.addSecondCounter} variant='contained'> Add Second Counter</Button>
         </div>
        );
     }
 }
-AddCounter.contextType = AppContext;
 export default AddCounter;

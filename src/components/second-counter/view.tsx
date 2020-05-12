@@ -1,23 +1,20 @@
 import * as React from 'react';
-import { AppStore } from '../../store';
-import { observer } from 'mobx-react';
-import { AppContext } from '../../context';
-interface ISeconCounterProps {
+import { CounterState } from '../../store/counter/types';
+interface ISecondCounterProps {
+    secondCount:number
 }
 
-@observer
-class SecondCounter extends React.Component<ISeconCounterProps>{
-    constructor(props: ISeconCounterProps){
+class SecondCounter extends React.Component<ISecondCounterProps>{
+    constructor(props: ISecondCounterProps){
         super(props);
     }
     public render(){
         console.log("render second counter");
         return (
             <div>
-                <label>current second count: {this.context.secondCounter}</label>
+                <label>current second count: {this.props.secondCount}</label>
             </div>
         );
     }
 }
-SecondCounter.contextType = AppContext;
 export default SecondCounter;
