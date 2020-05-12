@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Counter, AddCounter} from './ui-components';
+import { Counter, AddCounter} from './components';
 
 function App() {
   const [counter, setCounter] = React.useState(0);
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Counter count={counter}></Counter>
+        <Counter counter={counter}></Counter>
         <AddCounter counter={counter} setCounter={setCounter}></AddCounter>
       </header>
     </div>

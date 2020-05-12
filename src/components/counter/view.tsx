@@ -1,6 +1,6 @@
 import * as React from 'react';
 interface ICounterProps {
-    count: number;
+    counter: number;
 }
 
 class Counter extends React.Component<ICounterProps>{
@@ -10,7 +10,7 @@ class Counter extends React.Component<ICounterProps>{
     public render(){
         return (
         <div>
-            <label>current count: {this.props.count}</label>
+            <label>current count: {this.props.counter}</label>
         </div>);
     }
 }
